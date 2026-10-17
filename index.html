@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173c32">
+  <meta name="description" content="Explore rental property options in Wazirabad and Sangam Vihar, Delhi with Vanshit Infra.">
+  <title>Vanshit Infra | Local Rentals in Delhi</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Vanshit Infra home">
+      <span class="brand-mark">VI</span>
+      <span><strong>VANSHIT <em>INFRA</em></strong><small>LOCAL RENTAL SPECIALISTS</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#rentals" class="nav-link">Rentals</a>
+      <a href="#localities" class="nav-link">Localities</a>
+      <a href="#about" class="nav-link">About us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a class="nav-cta" href="#rentals">Find a rental <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEIGHBOURHOOD. YOUR NEXT HOME.</p>
+        <h1>A place to call<br><span>your own.</span></h1>
+        <p class="hero-description">Discover rental options around Wazirabad and Sangam Vihar with local guidance from Vanshit Infra.</p>
+        <div class="hero-actions">
+          <a href="#rentals" class="button button-dark">Explore rentals <span>↗</span></a>
+          <a href="#contact" class="text-link">Talk to our team <span>→</span></a>
+        </div>
+        <div class="hero-note"><span class="note-dot"></span> Local rental assistance, made simple.</div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85" alt="Bright contemporary home interior">
+        <div class="image-caption"><span>LOCAL RENTALS</span><strong>Find the right fit.</strong></div>
+        <div class="floating-card"><span class="floating-icon">⌂</span><span><strong>Closer to what matters</strong><small>Explore your preferred locality</small></span></div>
+      </div>
+      <div class="hero-bottom">
+        <span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>DELHI, INDIA</span>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Search rentals">
+      <div class="search-intro"><span class="mini-label">START YOUR SEARCH</span><h2>Find your space.</h2></div>
+      <form id="heroSearch" class="search-form">
+        <label class="search-field"><span>LOCALITY</span><select id="heroLocality"><option value="">All localities</option><option>Wazirabad</option><option>Sangam Vihar</option></select></label>
+        <label class="search-field"><span>PROPERTY TYPE</span><select id="heroType"><option value="">Any type</option><option>Room</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>Independent House</option><option>Apartment</option></select></label>
+        <label class="search-field"><span>MAX. MONTHLY RENT</span><select id="heroBudget"><option value="">Any budget</option><option value="8000">₹8,000</option><option value="12000">₹12,000</option><option value="18000">₹18,000</option><option value="25000">₹25,000</option></select></label>
+        <button class="button button-dark search-button" type="submit">Search homes <span>↗</span></button>
+      </form>
+    </section>
+
+    <section class="section rentals-section" id="rentals">
+      <div class="section-heading">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> HANDPICKED FOR YOUR SEARCH</p><h2>Explore rental <span>spaces.</span></h2></div>
+        <p class="section-intro">A starting point for your next move. Browse by locality, compare options, and request details for the homes that interest you.</p>
+      </div>
+      <div class="listing-toolbar">
+        <div class="filter-chips" id="localityChips">
+          <button class="chip selected" data-locality="">All properties</button>
+          <button class="chip" data-locality="Wazirabad">Wazirabad</button>
+          <button class="chip" data-locality="Sangam Vihar">Sangam Vihar</button>
+        </div>
+        <div class="toolbar-right"><span id="resultCount">0 properties</span><select id="sortSelect" aria-label="Sort properties"><option value="newest">Newest first</option><option value="low">Rent: low to high</option><option value="high">Rent: high to low</option></select></div>
+      </div>
+      <div class="filters">
+        <label><span>Property type</span><select id="typeFilter"><option value="">All types</option><option>Room</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>Independent House</option><option>Apartment</option></select></label>
+        <label><span>Max. rent / month</span><select id="budgetFilter"><option value="">Any budget</option><option value="8000">₹8,000</option><option value="12000">₹12,000</option><option value="18000">₹18,000</option><option value="25000">₹25,000</option></select></label>
+        <label><span>Furnishing</span><select id="furnishingFilter"><option value="">Any furnishing</option><option>Furnished</option><option>Semi-Furnished</option><option>Unfurnished</option></select></label>
+        <button id="clearFilters" class="clear-button">Clear filters ↺</button>
+      </div>
+      <div id="propertyGrid" class="property-grid"></div>
+      <div id="emptyState" class="empty-state hidden"><span class="empty-icon">⌂</span><h3>No matches just yet</h3><p>Try adjusting your filters to explore more rental options.</p><button id="emptyClear" class="button button-dark">Clear filters</button></div>
+      <p class="demo-disclaimer">DEMO PREVIEW · Listings, prices, availability and images are illustrative examples, not confirmed live inventory. Replace them with actual property details before publishing.</p>
+    </section>
+
+    <section class="localities-section" id="localities">
+      <div class="section localities-inner">
+        <div class="section-heading">
+          <div><p class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> STAY CLOSE TO WHAT MATTERS</p><h2>Explore your <span>neighbourhood.</span></h2></div>
+          <p class="section-intro">Start with the areas you know. Browse rental options by locality and tell us what kind of place you're looking for.</p>
+        </div>
+        <div class="locality-grid">
+          <button class="locality-card" data-jump-locality="Wazirabad">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Modern city buildings">
+            <span class="locality-overlay"></span><span class="locality-number">01 / LOCALITY</span><span class="locality-name">Wazirabad <b>↗</b></span>
+          </button>
+          <button class="locality-card" data-jump-locality="Sangam Vihar">
+            <img src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1000&q=80" alt="Residential buildings in a neighborhood">
+            <span class="locality-overlay"></span><span class="locality-number">02 / LOCALITY</span><span class="locality-name">Sangam Vihar <b>↗</b></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="about-visual"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85" alt="Calm, welcoming home interior"><span class="about-stamp">YOUR LOCAL<br>PROPERTY PARTNER</span></div>
+      <div class="about-copy"><p class="eyebrow"><span class="eyebrow-line"></span> THE VANSHIT INFRA APPROACH</p><h2>Good homes start with <span>good guidance.</span></h2><p>Finding a rental is about more than four walls. It's about the right locality, a practical budget, and a place that fits your everyday life.</p><p>Vanshit Infra helps you explore rental options around Wazirabad and Sangam Vihar. Share what you need, and start a conversation about suitable properties.</p><a class="text-link" href="#contact">Tell us what you're looking for <span>→</span></a></div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="cta-decoration">VI</div>
+      <div class="cta-content"><p class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> LET'S FIND YOUR NEXT PLACE</p><h2>Have a home<br>in mind? <span>Let's talk.</span></h2><p>Request property details or ask for a callback. We'll help you take the next step.</p><button class="button button-light" id="openInquiry">Request contact details <span>↗</span></button></div>
+      <div class="contact-card"><span class="contact-card-label">LOCAL RENTAL ASSISTANCE</span><div class="contact-card-icon">✳</div><h3>Vanshit Infra</h3><p>Wazirabad · Sangam Vihar<br>Delhi, India</p><div class="contact-divider"></div><p class="contact-small">Office address and contact details will be added here by the business owner.</p><a href="#inquiry" class="contact-card-link" id="contactCardLink">Make an inquiry <span>→</span></a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">VI</span><span><strong>VANSHIT <em>INFRA</em></strong><small>LOCAL RENTAL SPECIALISTS</small></span></a>
+    <p>Local rental assistance for Wazirabad & Sangam Vihar, Delhi.</p>
+    <div class="footer-links"><a href="#rentals">Rentals</a><a href="#localities">Localities</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Vanshit Infra. All rights reserved.</span><span>DEMO WEBSITE · UPDATE DETAILS BEFORE LAUNCH</span></div>
+  </footer>
+
+  <dialog id="inquiryDialog" class="inquiry-dialog">
+    <div class="dialog-head"><div><p class="eyebrow"><span class="eyebrow-line"></span> VANSHIT INFRA</p><h2>Let's start a <span>conversation.</span></h2></div><button id="closeInquiry" class="dialog-close" aria-label="Close">×</button></div>
+    <p class="dialog-intro">Share a few details and choose how you'd like to make your inquiry.</p>
+    <form id="inquiryForm">
+      <label>Your name<input name="name" required placeholder="Enter your name"></label>
+      <label>Mobile number<input name="phone" required inputmode="tel" pattern="[+0-9 ()-]{10,16}" placeholder="Your contact number"></label>
+      <div class="form-row"><label>Preferred locality<select name="locality"><option>Wazirabad</option><option>Sangam Vihar</option><option>Either locality</option></select></label><label>Monthly budget<select name="budget"><option>Not decided</option><option>Under ₹8,000</option><option>₹8,000–₹12,000</option><option>₹12,000–₹18,000</option><option>Above ₹18,000</option></select></label></div>
+      <label>What do you need?<select name="purpose"><option>Request property details</option><option>Request a callback</option><option>Arrange a property visit</option></select></label>
+      <label>Property / message<textarea name="message" rows="3" placeholder="Tell us which property caught your eye (optional)"></textarea></label>
+      <p class="privacy-note">This demo prepares a message in WhatsApp or email. This static website does not store or automatically submit your information.</p>
+      <button type="submit" class="button button-dark full-button">Continue to inquiry <span>↗</span></button>
+      <p id="formFeedback" class="form-feedback" role="status"></p>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="properties.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
